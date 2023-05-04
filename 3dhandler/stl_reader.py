@@ -177,7 +177,7 @@ class draw_scene:
         glMatrixMode(GL_PROJECTION)
         glLoadIdentity()
         gluPerspective(45, 1.0*width/height, 0.1, 100.0)
-        #gluLookAt(0.0,0.0,45.0,0,0,0,0,40.0,0)
+        gluLookAt(0.0,10.0,45.0,0,0,0,0,40.0,0)
         glMatrixMode(GL_MODELVIEW)
         glLoadIdentity()
 

@@ -239,3 +239,6 @@ def user_input():
         else:
             x=1
     temp=inputx
+
+def mouse_position():
+    pass
