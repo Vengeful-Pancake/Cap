@@ -5,8 +5,8 @@ def main():
     RUNNING=1
     INPUT_HOLDER=""
     while RUNNING:
+
         UI(INPUT_HOLDER)
-    pass
 
 if __name__ == "__main__":    
     main()

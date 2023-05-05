@@ -228,16 +228,3 @@ def input(SCREEN):
 
 def mouse_position():
     pass
-
-
-def user_input():
-    inputx=input(x)
-    if inputx != temp and inputx!="null":
-        print (inputx)
-    if inputx == "F11":
-        if x==1:
-            x=0
-        else:
-            x=1
-    temp=inputx
-
