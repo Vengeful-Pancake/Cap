@@ -1,16 +1,14 @@
-from system_files.initial_file import *
-from system_files.save_load import SAVE
+import pygame
+from system_files.save.save import SAVE
+import sys
 
-def input(WINDOWMODE):
+def input(SCREEN):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             # deactivates the pygame library
-            SAVE(WINDOWMODE)
+            SAVE("SCREEN",SCREEN,"config.txt")
             pygame.quit()
-                         
-            # quit the program.
-            quit()
-            
+            sys.exit()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_BACKSPACE: 
                 return "backspace"
@@ -226,8 +224,11 @@ def input(WINDOWMODE):
                 return "Power"
             if event.key == pygame.K_EURO: 
                 return "Euro"
-            return chr(event.key)
     return "null"
+
+def mouse_position():
+    pass
+
 
 def user_input():
     inputx=input(x)
@@ -240,5 +241,3 @@ def user_input():
             x=1
     temp=inputx
 
-def mouse_position():
-    pass
