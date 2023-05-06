@@ -1,6 +1,7 @@
 import pygame
 from system_files.save.save import SAVE
 import sys
+from pygame.locals import *
 
 def input(SCREEN):
     for event in pygame.event.get():
@@ -9,6 +10,12 @@ def input(SCREEN):
             SAVE("SCREEN",SCREEN,"config.txt")
             pygame.quit()
             sys.exit()
+        
+        if event.type == MOUSEWHEEL:
+               print(event)
+               print(event.x, event.y)
+               print(event.flipped)
+
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_BACKSPACE: 
                 return "backspace"
@@ -20,8 +27,11 @@ def input(SCREEN):
                 return "return"
             if event.key == pygame.K_PAUSE: 
                 return "pause"
-            if event.key == pygame.K_ESCAPE: 
-                return "escape"
+            if event.key == pygame.K_ESCAPE:
+                print ("escape") 
+                SAVE("SCREEN",SCREEN,"config.txt")
+                pygame.quit()
+                sys.exit()
             if event.key == pygame.K_SPACE: 
                 return "space"
             if event.key == pygame.K_EXCLAIM: 
@@ -224,7 +234,9 @@ def input(SCREEN):
                 return "Power"
             if event.key == pygame.K_EURO: 
                 return "Euro"
+            return pygame.key.name(event.key)
+
     return "null"
 
 def mouse_position():
-    pass
+    return pygame.mouse.get_pos()

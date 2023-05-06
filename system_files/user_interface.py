@@ -1,28 +1,14 @@
 from system_files.save.save import *
 from system_files.input_handler import *
 from system_files.color import *
-
+from system_files.screen import *
 def screen_display(SCREEN):
-    SCREENING = pygame.image.load("system_files\\sprite\\scr.png")
-    SCREEN_TOLERANCE = 10
-    STATE = LOAD("STATE","cross.txt")
-
-    if SCREEN == 0:
-        width = LOAD("WINDOW_WIDTH","cross.txt")
-        height = LOAD("WINDOW_HEIGHT","cross.txt")
-        screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-    elif SCREEN == 1:
+    CROSS_SCREEN = LOAD("SCREEN","cross.txt")
+    SCREEN=LOAD("SCREEN", "config.txt")
+    if SCREEN == 1:
         width = 1920
         height = 1080
-        screen = pygame.display.set_mode((width,height))
-    elif SCREEN == 2:
-        width = 1600
-        height = 900
-        screen = pygame.display.set_mode((width,height))
-    elif SCREEN == 3:
-        width = 800
-        height = +600
-        screen = pygame.display.set_mode((width,height))
+        # SAVE("SCREEN",SCREEN,"cross.txt")
     if STATE == "PROGRAM":
         screen.fill(white)
         displayed_screen = pygame.transform.scale(SCREENING, (width, height))
@@ -43,12 +29,12 @@ def UI(INPUT_HOLDER):
     USER_INPUT=input(SCREEN)
     if USER_INPUT != "null" and USER_INPUT != INPUT_HOLDER:
         print (USER_INPUT)
-    if USER_INPUT == "F11":
-        if SCREEN<3:
-            SCREEN+=1
-        else:
-            SCREEN=0
-        SAVE("SCREEN",SCREEN,"config.txt")
+    # if USER_INPUT == "F11":
+    #     if SCREEN<3:
+    #         SCREEN+=1
+    #     else:
+    #         SCREEN=0
+    #     SAVE("SCREEN",SCREEN,"config.txt")
     INPUT_HOLDER=USER_INPUT
     screen_display(SCREEN)
 

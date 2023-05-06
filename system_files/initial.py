@@ -14,6 +14,7 @@ pygame.display.set_icon(icon)
 data={
     "WINDOW_HEIGHT" : WINDOW_HEIGHT,
     "WINDOW_WIDTH" : WINDOW_WIDTH,
-    "STATE" : "PROGRAM"
+    "STATE" : "PROGRAM",
+    "SCREEN" : 100
 }
 SAVE("",data,"cross.txt")
