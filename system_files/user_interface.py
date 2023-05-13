@@ -1,14 +1,10 @@
 from system_files.save.save import *
 from system_files.input_handler import *
 from system_files.color import *
-from system_files.screen import *
+from system_files.initial import *
+
 def screen_display(SCREEN):
-    CROSS_SCREEN = LOAD("SCREEN","cross.txt")
-    SCREEN=LOAD("SCREEN", "config.txt")
-    if SCREEN == 1:
-        width = 1920
-        height = 1080
-        # SAVE("SCREEN",SCREEN,"cross.txt")
+    STATE=LOAD("STATE","cross.txt")
     if STATE == "PROGRAM":
         screen.fill(white)
         displayed_screen = pygame.transform.scale(SCREENING, (width, height))
@@ -22,7 +18,7 @@ def screen_display(SCREEN):
         
     if STATE == "3DMODE":
         pass
-    pygame.display.update()
+    pygame.display.flip()
 
 def UI(INPUT_HOLDER):
     SCREEN = LOAD('SCREEN',"config.txt")

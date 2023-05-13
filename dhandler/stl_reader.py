@@ -1,11 +1,9 @@
 import os
 import struct
-
 from OpenGL.GL import *
 from OpenGL.GLU import *
 import pygame
 from pygame.locals import *
-
 #class for a 3d point
 class createpoint:
     def __init__(self,p,c=(1,0,0)):
@@ -42,6 +40,7 @@ class createtriangle:
   
     def cross_product(self,p1,p2):
         return (p1[1]*p2[2]-p2[1]*p1[2]) , (p1[2]*p2[0])-(p2[2]*p1[0]) , (p1[0]*p2[1])-(p2[0]*p1[1])
+
 
 class loader:
     model=[]
@@ -177,7 +176,7 @@ class draw_scene:
         glMatrixMode(GL_PROJECTION)
         glLoadIdentity()
         gluPerspective(45, 1.0*width/height, 0.1, 100.0)
-        gluLookAt(0.0,10.0,45.0,0,0,0,0,40.0,0)
+        gluLookAt(+0.0,10.0,45.0,0,0,0,0,40.0,0)
         glMatrixMode(GL_MODELVIEW)
         glLoadIdentity()
 
@@ -206,7 +205,6 @@ class draw_scene:
         glTranslatef(0.0,-26.0, -100.0)
         self.model1.draw()
 
-#main program loop
 def main():
     #initalize pygame
     pygame.init()
@@ -215,9 +213,6 @@ def main():
     #setup the open gl scene
     scene=draw_scene()
     scene.resize((1720,980))
-  
-    frames = 0
-    ticks = pygame.time.get_ticks()
     while 1:
         event = pygame.event.poll()
         if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
@@ -226,10 +221,5 @@ def main():
         #draw the scene
         scene.draw()
         pygame.display.flip()
-        frames = frames+1
 
-    print ("fps:  %d" % ((frames*1000)/(pygame.time.get_ticks()-ticks)))
-
-
-if __name__ == '__main__':
-    main()
+main()
