@@ -2,6 +2,9 @@ from system_files.save.save import *
 from system_files.input_handler import *
 from system_files.color import *
 from system_files.initial import *
+import easygui as eg
+from PIL import Image
+from dhandler.d_scanner import *
 
 def screen_display(SCREEN):
     STATE=LOAD("STATE","cross.txt")
@@ -19,6 +22,11 @@ def screen_display(SCREEN):
     if STATE == "3DMODE":
         pass
     pygame.display.flip()
+    input_path = eg.fileopenbox(title='Select image file')
+    # output_path = eg.filesavebox(title='Save file to..')
+    input = Image.open(input_path)
+    output = d_scan(input)
+    output.save("m.obj")
 
 def UI(INPUT_HOLDER):
     SCREEN = LOAD('SCREEN',"config.txt")
